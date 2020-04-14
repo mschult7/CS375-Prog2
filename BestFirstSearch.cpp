@@ -92,7 +92,7 @@ int main(int argc, char * argv[]){
       }
     }
   }
-  Node *v;
+  Node *v = new Node;
   priority_queue<Node *> PQ;
   v->level = 0;
   v->profit = 0;
