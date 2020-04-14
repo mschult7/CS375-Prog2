@@ -18,6 +18,8 @@ struct Node{
   int bound;
 };
 
+
+//Used to compare nodes for the priority queue based on bound.
 class nodecomp
 {
 public:
@@ -29,18 +31,19 @@ public:
 };
 
 
+//this function calculates the bound of each node given the prices and weights of the other items.
 int bound(Node * n, vector<int> p, vector<int> w, int weightLimit, int numItems){
   int retval = n->profit;
   int currWeight = n->weight;
   bool broke = false;
   for(int i=n->level+1; i<numItems+1;i++){
-    if(!broke && currWeight + w.at(i) <= weightLimit){
+    if(!broke && currWeight + w.at(i) <= weightLimit){//there is enough space for this item
       retval += p.at(i);
       currWeight += w.at(i);
-    } else if(!broke && currWeight + w.at(i) > weightLimit){
+    } else if(!broke && currWeight + w.at(i) > weightLimit){//need to add a fractional amount of this item to fill the Knapsack
       int remainder = (w.at(i)-((currWeight + w.at(i)) - weightLimit));
       retval += (p.at(i) * remainder/w.at(i));
-      broke = true;
+      broke = true;//done filling
     }
   }
 
@@ -180,7 +183,7 @@ int main(int argc, char * argv[]){
       leaf++;
     }
   }
-  //include count
+  //count items for optimal solution
   int sizee = 0;
   string linezz = "";
   for(int z=0;z<(int)include.size();z++){
@@ -190,6 +193,7 @@ int main(int argc, char * argv[]){
     }
   }
 
+//write to output file
   output.open(argv[2]);
   output<< numItems << "," << maxprofit << "," << sizee << "\n";
   output << count << "," << leaf << "\n";
