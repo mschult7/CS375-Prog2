@@ -20,6 +20,8 @@ int main(int argc, char * argv[]){
   ifstream input(argv[1]);
   ofstream output;
 
+
+  //Get items from input
   int currLine = 0;
   if(input.is_open()){
     while(input.good()){
@@ -50,5 +52,25 @@ int main(int argc, char * argv[]){
       }
     }
   }
+  //sort items
+  int temp_price;
+  int temp_weight;
+  bool sorted = false
+
+  while(!sorted) {
+    sorted = true
+    for(int i=0; i < numItems; i++) {
+      if(w.at(i)/p.at(i) > w.at(i-1)/p.at(i-1)) {
+        temp_price = p.at(i);
+        temp_weight = w.at(i);
+        p.at(i) = p.at(i-1);
+        w.at(i) = w.at(i-1);
+        p.at(i-1) = temp_price;
+        w.at(i-1) = temp_weight;
+        sorted = false;
+      }
+    }
+  }
+
 
 }
