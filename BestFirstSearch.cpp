@@ -113,7 +113,6 @@ int main(int argc, char * argv[]){
   w.insert(w.begin(),0);
   Node *u;;
   int maxprofit = 0;
-  int maxprofit
   vector<bool> include(numItems+1);
   priority_queue<Node *, vector<Node *>, nodecomp> PQ;
   v->level = 0;
@@ -168,7 +167,7 @@ int main(int argc, char * argv[]){
   }
   //include count
 
-printf(numItems + "," + maxprofit + ",");
+cout<< numItems << "," << maxprofit << ",";
 
 
 
