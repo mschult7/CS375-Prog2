@@ -11,6 +11,7 @@ using namespace std;
 struct Node{
   Node * yeschild;
   Node * nochild;
+  Node * parent;
   int level;
   int profit;
   int weight;
@@ -106,33 +107,45 @@ int main(int argc, char * argv[]){
       }
     }
   }
+  int count = 0;
   Node *v = new Node;
   p.insert(p.begin(),0);
   w.insert(w.begin(),0);
   Node *u;;
   int maxprofit = 0;
+  int maxprofit
   vector<bool> include(numItems+1);
   priority_queue<Node *, vector<Node *>, nodecomp> PQ;
   v->level = 0;
   v->profit = 0;
   v->weight = 0;
+  v->parent = 0x0;
   v->bound = bound(v, p, w, weightLimit,numItems);
   PQ.push(v);
+  Node * root = v;
   while(!PQ.empty()){
     v = PQ.top();
+    count++;
     PQ.pop();
     if(v->bound > maxprofit){
       for(int i=0;i<2;i++){
         if(i==0){
           u = v->yeschild = new Node;
+          u->parent = v;
           u->level = v->level + 1;
           u->weight = v->weight + w.at(u->level);
           u->profit = v->profit + p.at(u->level);
-          u->bound = bound(u,p,w,weightLimit,numItems);
           if(u->weight <= weightLimit && u->profit>maxprofit){
             maxprofit = u->profit;
+            Node * temp = u;
+            while(temp != root){
+
+            }
+            u->bound = bound(u,p,w,weightLimit,numItems);
             if(u->bound > maxprofit){
               PQ.push(u);
+            }else{
+              count++;
             }
           }
 
@@ -140,17 +153,22 @@ int main(int argc, char * argv[]){
         }else{
           u = v->nochild = new Node;
           u->level = v->level + 1;
+          u->parent = v;
           u->weight = v->weight;
           u->profit = v->profit;
           u->bound = bound(u,p,w,weightLimit,numItems);
           if(u->bound>maxprofit){
             PQ.push(u);
+          }else{
+            count++;
           }
         }
       }
     }
   }
+  //include count
 
+printf(numItems + "," + maxprofit + ",");
 
 
 
