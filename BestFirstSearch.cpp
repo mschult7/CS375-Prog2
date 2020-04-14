@@ -49,6 +49,7 @@ int bound(Node * n, vector<int> p, vector<int> w, int weightLimit, int numItems)
 int main(int argc, char * argv[]){
   if(argc != 3){
     perror("Error: must be run like \n  ./BestFirstSearch <input.txt> <output.txt>");
+    exit(1);
   }
 
   int numItems = 0;
@@ -188,9 +189,11 @@ int main(int argc, char * argv[]){
       linezz += to_string(w.at(z+1)) + "," + to_string(p.at(z+1)) + "\n";
     }
   }
-cout<< numItems << "," << maxprofit << "," << sizee << "\n";
-cout << count << "," << leaf << "\n";
-cout << linezz;
+
+  output.open(argv[2]);
+  output<< numItems << "," << maxprofit << "," << sizee << "\n";
+  output << count << "," << leaf << "\n";
+  output << linezz;
 
 
 
