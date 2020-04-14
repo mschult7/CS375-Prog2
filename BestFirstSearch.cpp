@@ -175,15 +175,15 @@ int main(int argc, char * argv[]){
     }
   }
   //include count
-  int size = 0;
+  int sizee = 0;
   string linezz = "";
   for(int z=0;z<include.size();z++){
     if(include.at(z)==true){
-      size++;
+      sizee++;
       linezz += to_string(w.at(z+1)) + "," + to_string(p.at(z+1)) + "/n";
     }
   }
-cout<< numItems << "," << maxprofit << "," size << "/n";
+cout<< numItems << "," << maxprofit << "," << sizee << "/n";
 cout << count << "," << leaf << "/n";
 cout << linezz;
 
