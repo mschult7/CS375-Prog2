@@ -56,7 +56,7 @@ int main(int argc, char * argv[]){
   int temp_price;
   int temp_weight;
   for(int l=0; l < numItems; l++){
-    for(int x=1; x < (numItems-i); x++){
+    for(int x=1; x < (numItems-l); x++){
       if(p.at(x-1)/w.at(x-1) > p.at(x)/w.at(x)){
         temp_price = p.at(x-1);
         temp_weight = w.at(x-1);
