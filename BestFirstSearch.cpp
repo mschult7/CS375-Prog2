@@ -39,8 +39,8 @@ int main(int argc, char * argv[]){
   }
 
   int numItems = 0;
-  vector<int> p;
-  vector<int> w;
+  vector<int> p(1);
+  vector<int> w(1);
   int weightLimit = 0;
 
   string temp;
@@ -95,10 +95,47 @@ int main(int argc, char * argv[]){
     }
   }
   Node *v = new Node;
+  Node *u;;
+  int maxprofit = 0;
+  vector<bool> include(numItems+1);
   priority_queue<Node *> PQ;
   v->level = 0;
   v->profit = 0;
   v->weight = 0;
   v->bound = bound(v, p, w, weightLimit,numItems);
+  PQ.push(v);
+  while(!PQ.empty()){
+    v = PQ.pop();
+    if(v->bound > maxprofit){
+      for(int i=0;i<2;i++){
+        if(i==0){
+          u = v->yeschild = new Node;
+          u->level = v->level + 1;
+          u->weight = v->weight + w.at(u->level);
+          u->profit = v->profit + p.at(u->level);
+          if(u->weight <= weightLimit && u->profit>maxprofit){
+            maxprofit = u->profit;
+          }
+          u->bound = bound(u,p,w,weightLimit,numItems);
+          if(u->bound > maxprofit){
+            PQ.push(u);
+          }
+
+        }else}{
+          u = v->nochild = new Node;
+          u->level = v->level + 1;
+          u->weight = v->weight;
+          u->profit = v->profit;
+          u->bound = bound(u,p,w,weightLimit,numItems);
+          if(u->bound>maxprofit){
+            PQ.push(u);
+          }
+        }
+      }
+    }
+  }
+
+
+
 
 }
