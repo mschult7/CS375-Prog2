@@ -138,7 +138,10 @@ int main(int argc, char * argv[]){
             maxprofit = u->profit;
             Node * temp = u;
             while(temp != root){
-
+              if(temp->parent->yeschild == temp){
+                include.insert(include.begin() + temp->level,true);
+              }
+              temp = temp->parent;
             }
             u->bound = bound(u,p,w,weightLimit,numItems);
             if(u->bound > maxprofit){
