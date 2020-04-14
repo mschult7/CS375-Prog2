@@ -177,7 +177,7 @@ int main(int argc, char * argv[]){
   //include count
   int sizee = 0;
   string linezz = "";
-  for(int z=0;z<include.size();z++){
+  for(int z=0;z<(int)include.size();z++){
     if(include.at(z)==true){
       sizee++;
       linezz += to_string(w.at(z+1)) + "," + to_string(p.at(z+1)) + "\n";
