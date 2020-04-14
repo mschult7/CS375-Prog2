@@ -108,6 +108,7 @@ int main(int argc, char * argv[]){
     }
   }
   int count = 2;
+  int leaf = 0;
   Node *v = new Node;
   p.insert(p.begin(),0);
   w.insert(w.begin(),0);
@@ -169,11 +170,23 @@ int main(int argc, char * argv[]){
           }
         }
       }
+    }else{
+      leaf++;
     }
   }
   //include count
+  int size = 0;
+  string linezz = "";
+  for(int z=0;z<include.size();i++){
+    if(include.at(z)==true){
+      size++;
+      linezz += w.at(z+1) + "," + p.at(z+1) + "/n";
+    }
+  }
+cout<< numItems << "," << maxprofit << "," size << "/n";
+cout << count << "," << leaf << "/n";
+cout << linezz;
 
-cout<< numItems << "," << maxprofit << ",";
 
 
 
