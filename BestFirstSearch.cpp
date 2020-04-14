@@ -13,7 +13,7 @@ struct Node{
   int profit;
   int weight;
   int bound;
-}
+};
 
 int bound(Node * n, vector<int> p, vector<int> w, int weightLimit, int numItems){
   int retval = n->profit;
