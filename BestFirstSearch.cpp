@@ -117,7 +117,7 @@ int main(int argc, char * argv[]){
   v->bound = bound(v, p, w, weightLimit,numItems);
   PQ.push(v);
   while(!PQ.empty()){
-    v = PQ.pop();
+    v = PQ.top();
     if(v->bound > maxprofit){
       for(int i=0;i<2;i++){
         if(i==0){
