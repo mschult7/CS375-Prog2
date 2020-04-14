@@ -180,11 +180,11 @@ int main(int argc, char * argv[]){
   for(int z=0;z<include.size();z++){
     if(include.at(z)==true){
       sizee++;
-      linezz += to_string(w.at(z+1)) + "," + to_string(p.at(z+1)) + "/n";
+      linezz += to_string(w.at(z+1)) + "," + to_string(p.at(z+1)) + "\n";
     }
   }
-cout<< numItems << "," << maxprofit << "," << sizee << "/n";
-cout << count << "," << leaf << "/n";
+cout<< numItems << "," << maxprofit << "," << sizee << "\n";
+cout << count << "," << leaf << "\n";
 cout << linezz;
 
 
