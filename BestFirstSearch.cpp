@@ -43,8 +43,8 @@ int main(int argc, char * argv[]){
           getline(sstemp,substrtemp,',');
           vecttemp.push_back(stoi(substrtemp,nullptr,10));
         }
-        w.at(currLine-1) = vecttemp.at(0);
-        p.at(currLine-1) = vecttemp.at(1);
+        w.push_back = vecttemp.at(0);
+        p.push_back = vecttemp.at(1);
 
         currLine++;
       }
