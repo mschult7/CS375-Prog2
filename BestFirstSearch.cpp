@@ -128,13 +128,14 @@ int main(int argc, char * argv[]){
           u->level = v->level + 1;
           u->weight = v->weight + w.at(u->level);
           u->profit = v->profit + p.at(u->level);
+          u->bound = bound(u,p,w,weightLimit,numItems);
           if(u->weight <= weightLimit && u->profit>maxprofit){
             maxprofit = u->profit;
+            if(u->bound > maxprofit){
+              PQ.push(u);
+            }
           }
-          u->bound = bound(u,p,w,weightLimit,numItems);
-          if(u->bound > maxprofit){
-            PQ.push(u);
-          }
+
 
         }else{
           u = v->nochild = new Node;
