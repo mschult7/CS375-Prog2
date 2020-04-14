@@ -23,7 +23,7 @@ public:
   nodecomp(){};
   bool operator() (Node*& lhs,Node*&rhs) const
   {
-    return lhs->bound > rhs->bound;
+    return lhs->bound < rhs->bound;
   }
 };
 
