@@ -142,9 +142,9 @@ int main(int argc, char * argv[]){
             include.clear();
             while(temp != root){
               if(temp->parent->yeschild == temp){
-                include.push_front(true);
+                include.insert(include.begin(),true);
               }else{
-                include.push_front(false);
+                include.insert(include.begein(),false);
               }
               temp = temp->parent;
             }
