@@ -6,6 +6,30 @@
 #include <sstream>
 using namespace std;
 
+struct Node{
+  Node * yeschild;
+  Node * nochild;
+  int level;
+  int profit;
+  int weight;
+  int bound;
+}
+
+int bound(Node * n, vector<int> p, vector<int> w, int weightLimit, int numItems){
+  int retval = n->profit;
+  int currWeight = n->weight;
+  bool broke = false;
+  for(int i=n->level+1; i<numItems;i++){
+    if(!broke && currWeight + w.at(i) <= weightLimit){
+      retval += p.at(i);
+    } else if(!broke && currWeight + w.at(i) > weightLimit){
+      retval += p.at(i) * ((w.at(i)-((currWeight + w.at(i)) - weightLimit))/w.at(i));
+      broke = true;
+    }
+  }
+
+  return retval;
+}
 int main(int argc, char * argv[]){
   if(argc != 3){
     perror("Error: must be run like \n  ./BestFirstSearch <input.txt> <output.txt>");
@@ -67,6 +91,11 @@ int main(int argc, char * argv[]){
       }
     }
   }
-
+  Node * u,v;
+  priority_queue<Node *> PQ;
+  v->level = 0;
+  v->profit = 0;
+  v->weight = 0;
+  v->bound = bound(v, p, w, weightLimit,numItems);
 
 }
