@@ -107,6 +107,8 @@ int main(int argc, char * argv[]){
     }
   }
   Node *v = new Node;
+  p.insert(p.begin(),0);
+  w.insert(w.begin(),0);
   Node *u;;
   int maxprofit = 0;
   vector<bool> include(numItems+1);
@@ -118,6 +120,7 @@ int main(int argc, char * argv[]){
   PQ.push(v);
   while(!PQ.empty()){
     v = PQ.top();
+    PQ.pop();
     if(v->bound > maxprofit){
       for(int i=0;i<2;i++){
         if(i==0){
