@@ -121,7 +121,7 @@ int main(int argc, char * argv[]){
             PQ.push(u);
           }
 
-        }else}{
+        }else{
           u = v->nochild = new Node;
           u->level = v->level + 1;
           u->weight = v->weight;
