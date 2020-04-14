@@ -107,7 +107,7 @@ int main(int argc, char * argv[]){
       }
     }
   }
-  int count = 2;
+  int count = 0;
   int leaf = 0;
   Node *v = new Node;
   p.insert(p.begin(),0);
@@ -154,6 +154,9 @@ int main(int argc, char * argv[]){
               count++;
               leaf++;
             }
+          }else{
+            leaf++;
+            count++;
           }
 
 
