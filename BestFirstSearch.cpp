@@ -107,7 +107,7 @@ int main(int argc, char * argv[]){
       }
     }
   }
-  int count = 0;
+  int count = 2;
   Node *v = new Node;
   p.insert(p.begin(),0);
   w.insert(w.begin(),0);
