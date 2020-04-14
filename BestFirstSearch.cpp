@@ -25,7 +25,8 @@ int bound(Node * n, vector<int> p, vector<int> w, int weightLimit, int numItems)
       retval += p.at(i);
       currWeight += w.at(i);
     } else if(!broke && currWeight + w.at(i) > weightLimit){
-      retval += p.at(i) * ((w.at(i)-((currWeight + w.at(i)) - weightLimit))/w.at(i));
+      int remainder = (w.at(i)-((currWeight + w.at(i)) - weightLimit));
+      retval += (p.at(i) * remainder/w.at(i));
       broke = true;
     }
   }
