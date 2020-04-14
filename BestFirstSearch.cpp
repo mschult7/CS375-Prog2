@@ -177,10 +177,10 @@ int main(int argc, char * argv[]){
   //include count
   int size = 0;
   string linezz = "";
-  for(int z=0;z<include.size();i++){
+  for(int z=0;z<include.size();z++){
     if(include.at(z)==true){
       size++;
-      linezz += w.at(z+1) + "," + p.at(z+1) + "/n";
+      linezz += to_string(w.at(z+1)) + "," + to_string(p.at(z+1)) + "/n";
     }
   }
 cout<< numItems << "," << maxprofit << "," size << "/n";
