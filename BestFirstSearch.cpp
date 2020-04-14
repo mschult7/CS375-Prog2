@@ -55,7 +55,7 @@ int main(int argc, char * argv[]){
   //sort items
   int temp_price;
   int temp_weight;
-  bool sorted = false
+  bool sorted = false;
 
   while(!sorted) {
     sorted = true
