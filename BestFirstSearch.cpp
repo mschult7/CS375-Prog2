@@ -21,7 +21,7 @@ class nodecomp
 {
 public:
   nodecomp(){};
-  bool operator() (const Node*& lhs, const Node*&rhs) const
+  bool operator() (Node*& lhs,Node*&rhs) const
   {
     return lhs->bound > rhs->bound;
   }
