@@ -144,7 +144,7 @@ int main(int argc, char * argv[]){
               if(temp->parent->yeschild == temp){
                 include.insert(include.begin(),true);
               }else{
-                include.insert(include.begein(),false);
+                include.insert(include.begin(),false);
               }
               temp = temp->parent;
             }
