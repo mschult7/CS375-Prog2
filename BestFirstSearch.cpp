@@ -5,6 +5,7 @@
 #include <vector>
 #include <sstream>
 #include <queue>
+#include <functional>
 using namespace std;
 
 struct Node{
@@ -15,6 +16,17 @@ struct Node{
   int weight;
   int bound;
 };
+
+class nodecomp
+{
+public:
+  nodecomp(){};
+  bool operator() (const Node& lhs, const Node&rhs) const
+  {
+    return lhs->bound > rhs->bound;
+  }
+};
+
 
 int bound(Node * n, vector<int> p, vector<int> w, int weightLimit, int numItems){
   int retval = n->profit;
@@ -98,7 +110,7 @@ int main(int argc, char * argv[]){
   Node *u;;
   int maxprofit = 0;
   vector<bool> include(numItems+1);
-  priority_queue<Node *> PQ;
+  priority_queue<Node *, vector<Node *>, nodecomp> PQ;
   v->level = 0;
   v->profit = 0;
   v->weight = 0;
