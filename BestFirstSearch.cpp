@@ -60,7 +60,7 @@ int main(int argc, char * argv[]){
   while(!sorted) {
     sorted = true;
     for(int l=0; l < numItems; l++) {
-      if(w.at(l)/p.at(l) > w.at(l-1)/p.at(l-1)) {
+      if(p.at(l)/w.at(l) > p.at(l-1)/w.at(l-1)) {
         temp_price = p.at(l);
         temp_weight = w.at(l);
         p.at(l) = p.at(l-1);
