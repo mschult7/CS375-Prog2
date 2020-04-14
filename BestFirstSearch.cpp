@@ -137,6 +137,7 @@ int main(int argc, char * argv[]){
           if(u->weight <= weightLimit && u->profit>maxprofit){
             maxprofit = u->profit;
             Node * temp = u;
+            include.clear();
             while(temp != root){
               if(temp->parent->yeschild == temp){
                 include.insert(include.begin() + temp->level,true);
