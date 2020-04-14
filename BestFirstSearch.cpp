@@ -55,19 +55,15 @@ int main(int argc, char * argv[]){
   //sort items
   int temp_price;
   int temp_weight;
-  bool sorted = false;
-
-  while(!sorted) {
-    sorted = true;
-    for(int l=0; l < numItems; l++) {
-      if(p.at(l)/w.at(l) > p.at(l-1)/w.at(l-1)) {
-        temp_price = p.at(l);
-        temp_weight = w.at(l);
-        p.at(l) = p.at(l-1);
-        w.at(l) = w.at(l-1);
-        p.at(l-1) = temp_price;
-        w.at(l-1) = temp_weight;
-        sorted = false;
+  for(int l=0; l < numItems; l++){
+    for(int x=1; x < (numItems-i); x++){
+      if(p.at(x-1)/w.at(x-1) > p.at(x)/w.at(x)){
+        temp_price = p.at(x-1);
+        temp_weight = w.at(x-1);
+        p.at(x-1) = p.at(x);
+        w.at(x-1) = w.at(x);
+        p.at(x) = temp_price;
+        w.at(x) = temp_weight;
       }
     }
   }
