@@ -142,7 +142,7 @@ int main(int argc, char * argv[]){
               if(temp->parent->yeschild == temp){
                 include.push_back(true);
               }else{
-                include.push_back(true);
+                include.push_back(false);
               }
               temp = temp->parent;
             }
