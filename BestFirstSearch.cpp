@@ -152,6 +152,7 @@ int main(int argc, char * argv[]){
               PQ.push(u);
             }else{
               count++;
+              leaf++;
             }
           }
 
@@ -167,6 +168,7 @@ int main(int argc, char * argv[]){
             PQ.push(u);
           }else{
             count++;
+            leaf++;
           }
         }
       }
